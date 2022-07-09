@@ -27,6 +27,7 @@
       repo: 'onesblog',
       owner: 'fun-era-l',
       admin: ["fun-era-l"],
+      label: 'Gitalk',
       distractionFreeMode: false
     };
     window.$docsify = {
@@ -68,6 +69,9 @@
             divEle.className = "gitalk-container";
             divEle.style = "width: " + main.clientWidth + "px; margin: 0 auto 20px;";
             domObj.appendTo(domObj.find(".content"), divEle);
+            // gitalk 使用 label和id作为接口的label参数拉取issue内容
+            // 每个页面对应的评论需要在onesblog仓库中新建一个包含对应标签的issue.
+            // https://github.com/Fun-Era-l/onesblog/issues
             gitalk = new Gitalk(
               Object.assign(gitalkConfig, { id: !label ? "home" : label })
             );
